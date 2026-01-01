@@ -2,6 +2,10 @@
 
 A modern, full-featured product management system built with React, Redux Toolkit, and Tailwind CSS. This application provides a comprehensive solution for managing products, favorites, and inventory with a beautiful, responsive user interface.
 
+## 🌐 Live Demo
+
+**Live Application**: [https://695652c02bdf20693a7ff75f--lambent-frangipane-f19343.netlify.app/dashboard](https://695652c02bdf20693a7ff75f--lambent-frangipane-f19343.netlify.app/dashboard)
+
 ## 📑 Table of Contents
 
 - [Overview](#-overview)
@@ -24,6 +28,8 @@ A modern, full-featured product management system built with React, Redux Toolki
 ## 🎯 Overview
 
 The Product Management Application is a single-page application (SPA) designed to help users efficiently manage their product inventory. It features a modern dashboard interface with real-time product browsing, search, filtering, sorting capabilities, and a favorites system for quick access to preferred products.
+
+**🔗 [View Live Application](https://695652c02bdf20693a7ff75f--lambent-frangipane-f19343.netlify.app/dashboard)**
 
 ### Key Highlights
 
@@ -637,19 +643,53 @@ Test the production build locally before deploying.
 
 ### Deployment Options
 
-#### Vercel
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run `vercel` in the project directory
-3. Follow the prompts to deploy
-4. Add environment variables in Vercel dashboard
-
 #### Netlify
 
-1. Build command: `npm run build`
-2. Publish directory: `dist`
-3. Add environment variables in Netlify dashboard
-4. Deploy from Git or drag and drop the `dist` folder
+**Option 1: Deploy via Netlify Dashboard (Easiest)**
+
+1. Push your code to GitHub, GitLab, or Bitbucket
+2. Go to [netlify.com](https://netlify.com) and sign in
+3. Click "Add new site" → "Import an existing project"
+4. Connect your Git repository
+5. Netlify will auto-detect the build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+6. Add environment variables:
+   - Go to Site Settings → Environment Variables
+   - Click "Add variable"
+   - Add `VITE_BASE_URL` with your API base URL
+7. Click "Deploy site"
+
+**Option 2: Deploy via Netlify CLI**
+
+1. Install Netlify CLI: `npm install -g netlify-cli`
+2. Login to Netlify: `netlify login`
+3. Initialize and deploy:
+   ```bash
+   netlify init
+   ```
+   - Follow the prompts to link/create your site
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+4. Set environment variables:
+   ```bash
+   netlify env:set VITE_BASE_URL "your-api-url"
+   ```
+5. Deploy to production:
+   ```bash
+   netlify deploy --prod
+   ```
+
+**Option 3: Deploy via Drag & Drop**
+
+1. Build your project locally: `npm run build`
+2. Go to [app.netlify.com/drop](https://app.netlify.com/drop)
+3. Drag and drop the `dist` folder
+4. Your site will be deployed instantly
+
+> 📝 **Note**: The `netlify.toml` configuration file is already included in the project for optimal SPA routing and build settings.
+
+**🌐 Live Site**: [https://695652c02bdf20693a7ff75f--lambent-frangipane-f19343.netlify.app/dashboard](https://695652c02bdf20693a7ff75f--lambent-frangipane-f19343.netlify.app/dashboard)
 
 #### GitHub Pages
 
