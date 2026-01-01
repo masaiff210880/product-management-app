@@ -573,6 +573,34 @@ export default defineConfig({
 | `npm run test:ui` | Run tests with Vitest UI |
 | `npm run test:coverage` | Run tests with coverage report |
 
+### Coverage Report
+
+The following table shows the current test coverage statistics for the project:
+
+#### Overall Coverage
+
+| Metric | Coverage | Status |
+|--------|----------|--------|
+| **Statements** | 57.77% (966/1672) | ⚠️ Medium |
+| **Branches** | 78.86% (97/123) | ✅ Good |
+| **Functions** | 63.41% (26/41) | ⚠️ Medium |
+| **Lines** | 57.77% (966/1672) | ⚠️ Medium |
+
+#### Coverage by Directory
+
+| Directory | Statements | Branches | Functions | Lines |
+|-----------|------------|----------|-----------|-------|
+| `src/common` | 100% (125/125) | 85.71% (6/7) | 100% (1/1) | 100% (125/125) |
+| `src/hooks` | 100% (19/19) | 100% (4/4) | 100% (1/1) | 100% (19/19) |
+| `src/server` | 100% (21/21) | 100% (1/1) | 33.33% (1/3) | 100% (21/21) |
+| `src/components` | 77.73% (398/512) | 92.59% (50/54) | 78.57% (11/14) | 77.73% (398/512) |
+| `src/redux` | 62.5% (20/32) | 75% (3/4) | 66.66% (2/3) | 62.5% (20/32) |
+| `src/pages` | 56.48% (383/678) | 68.75% (33/48) | 71.42% (10/14) | 56.48% (383/678) |
+| `src/layout` | 0% (0/242) | 0% (0/3) | 0% (0/3) | 0% (0/242) |
+| `src` | 0% (0/43) | 0% (0/2) | 0% (0/2) | 0% (0/43) |
+
+> 📊 **Note**: Coverage reports are generated when running `npm run test:coverage`. The HTML report can be viewed by opening `coverage/index.html` in your browser.
+
 ### Test Structure
 
 - **Unit Tests**: Located in `src/__tests__/unit/`
