@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management App - Complete Documentation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2563eb;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e40af;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+        }
+        h3 {
+            color: #3b82f6;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        h4 {
+            color: #60a5fa;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #dc2626;
+        }
+        pre {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        pre code {
+            background: transparent;
+            color: #f9fafb;
+            padding: 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2px;
+        }
+        .badge-blue {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .badge-green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .badge-purple {
+            background: #e9d5ff;
+            color: #6b21a8;
+        }
+        .badge-yellow {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        .feature-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .info-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .toc {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        .toc li {
+            margin: 8px 0;
+        }
+        .toc a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+        }
+        .download-btn-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .download-btn:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        .step-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .step-number {
+            display: inline-block;
+            background: #0ea5e9;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        @media print {
+            .download-btn-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-btn-container">
+        <button class="download-btn" onclick="downloadPDF()" title="Download as PDF">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Download PDF
+        </button>
+    </div>
+    <div class="container" id="content">
+        <h1>📦 Product Management Application - Complete Documentation</h1>
+        <p style="font-size: 1.1em; color: #6b7280; margin-bottom: 30px;">
+            A comprehensive guide to the Product Management Application - from basic setup to advanced features. 
+            This documentation covers everything you need to understand, develop, and deploy the application.
+        </p>
+
+        <div class="toc">
+            <h3>📑 Table of Contents</h3>
+            <ul>
+                <li><a href="#overview">1. Overview</a></li>
+                <li><a href="#getting-started">2. Getting Started</a></li>
+                <li><a href="#project-structure">3. Project Structure</a></li>
+                <li><a href="#basic-setup">4. Basic Setup & Configuration</a></li>
+                <li><a href="#running-app">5. Running the Application</a></li>
+                <li><a href="#components">6. Components Documentation</a></li>
+                <li><a href="#state-management">7. State Management</a></li>
+                <li><a href="#api-integration">8. API Integration</a></li>
+                <li><a href="#routing">9. Routing & Navigation</a></li>
+                <li><a href="#features">10. Features Deep Dive</a></li>
+                <li><a href="#testing">11. Testing</a></li>
+                <li><a href="#build-deploy">12. Build & Deployment</a></li>
+                <li><a href="#advanced">13. Advanced Topics</a></li>
+                <li><a href="#troubleshooting">14. Troubleshooting</a></li>
+            </ul>
+        </div>
+
+        <h2 id="overview">1. 🎯 Overview</h2>
+        <p>
+            The Product Management Application is a modern, full-featured single-page application (SPA) 
+            designed to help users efficiently manage their product inventory. Built with React 19, 
+            Redux Toolkit, and Tailwind CSS, it provides a comprehensive solution for product browsing, 
+            search, filtering, sorting, and favorites management.
+        </p>
+
+        <h3>Key Highlights</h3>
+        <ul>
+            <li><strong>Modern Stack:</strong> React 19, Vite 7, Redux Toolkit 2</li>
+            <li><strong>Performance:</strong> Optimized with code splitting, lazy loading, and efficient state management</li>
+            <li><strong>User Experience:</strong> Debounced search, skeleton loading, error handling with retry</li>
+            <li><strong>Responsive Design:</strong> Fully responsive layout for all device sizes</li>
+            <li><strong>Testing:</strong> Comprehensive test suite with Vitest and React Testing Library</li>
+        </ul>
+
+        <h2 id="getting-started">2. 🚀 Getting Started</h2>
+
+        <div class="step-box">
+            <h3><span class="step-number">1</span> Prerequisites</h3>
+            <p>Before you begin, ensure you have the following installed:</p>
+            <ul>
+                <li><strong>Node.js:</strong> Version 18.x or higher</li>
+                <li><strong>npm:</strong> Version 9.x or higher (comes with Node.js)</li>
+                <li><strong>Git:</strong> For version control (optional but recommended)</li>
+            </ul>
+            <p>Verify installations:</p>
+            <pre><code>node --version
+npm --version
+git --version</code></pre>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">2</span> Installation</h3>
+            <p><strong>Clone the repository:</strong></p>
+            <pre><code>git clone https://github.com/yourusername/product-management-app.git
+cd product-management-app</code></pre>
+
+            <p><strong>Install dependencies:</strong></p>
+            <pre><code>npm install</code></pre>
+            <p>This will install all required dependencies listed in <code>package.json</code>.</p>
+        </div>
+
+        <div class="step-box">
+            <h3><span class="step-number">3</span> Environment Configuration</h3>
+            <p>Create a <code>.env</code> file in the root directory:</p>
+            <pre><code>VITE_BASE_URL=https://fakestoreapi.com</code></pre>
+            <div class="warning-box">
+                <strong>⚠️ Important:</strong> 
+                <ul>
+                    <li>Make sure to add <code>.env</code> to your <code>.gitignore</code> file</li>
+                    <li>Never commit sensitive information to version control</li>
+                    <li>For production, set environment variables in your deployment platform</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="project-structure">3. 📁 Project Structure</h2>
+        <p>Understanding the project structure is crucial for development:</p>
+        <pre><code>product-management-app/
+├── public/                      # Static assets
+│   └── vite.svg
+├── src/
+│   ├── __tests__/              # Test files
+│   │   ├── integration/        # Integration tests
+│   │   │   ├── favorite.test.jsx
+│   │   │   ├── filter.test.jsx
+│   │   │   ├── search.test.jsx
+│   │   │   └── sort.test.jsx
+│   │   ├── unit/                # Unit tests
+│   │   │   ├── components/      # Component tests
+│   │   │   ├── hooks/           # Hook tests
+│   │   │   └── redux/           # Redux tests
+│   │   ├── utils/               # Test utilities
+│   │   └── setup.js             # Test setup configuration
+│   ├── assets/                  # Images and other assets
+│   │   ├── product.png
+│   │   └── react.svg
+│   ├── common/                  # Shared/common components
+│   │   └── CommonHeader.jsx     # Reusable header component
+│   ├── components/              # Reusable UI components
+│   │   ├── ErrorMessage.jsx     # Error display component
+│   │   ├── ProductCard.jsx     # Product card component
+│   │   ├── ProductCardSkeleton.jsx  # Loading skeleton
+│   │   ├── ProductDetailsSkeleton.jsx
+│   │   ├── Spinner.jsx          # Loading spinner
+│   │   ├── WishlistButton.jsx   # Favorite button
+│   │   └── Wrapper.jsx          # Layout wrapper
+│   ├── hooks/                   # Custom React hooks
+│   │   └── useDebounce.js       # Debounce hook for search
+│   ├── layout/                  # Layout components
+│   │   ├── DashboardLayout.jsx # Main layout wrapper
+│   │   ├── Header.jsx           # Top navigation header
+│   │   └── Sidebar.jsx          # Sidebar navigation menu
+│   ├── pages/                   # Page components
+│   │   ├── Dashboard.jsx        # Dashboard page
+│   │   ├── Favorites.jsx        # Favorites page
+│   │   ├── ProductDetails.jsx  # Product details page
+│   │   └── Products.jsx         # Products listing page
+│   ├── redux/                   # Redux store and slices
+│   │   ├── favoritesSlice.js    # Favorites state management
+│   │   └── store.js             # Redux store configuration
+│   ├── server/                  # API configuration
+│   │   └── api.js               # RTK Query API setup
+│   ├── utils/                   # Utility functions
+│   ├── App.jsx                  # Main App component
+│   ├── App.css                  # App-specific styles
+│   ├── index.css                # Global styles
+│   └── main.jsx                 # Application entry point
+├── .env                         # Environment variables
+├── eslint.config.js             # ESLint configuration
+├── index.html                   # HTML template
+├── package.json                 # Project dependencies and scripts
+├── README.md                    # Basic documentation
+├── Documentation.html           # This file
+└── vite.config.js              # Vite configuration</code></pre>
+
+        <h2 id="basic-setup">4. ⚙️ Basic Setup & Configuration</h2>
+
+        <h3>4.1 Package.json Scripts</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Script</th>
+                    <th>Command</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>dev</code></td>
+                    <td><code>npm run dev</code></td>
+                    <td>Start development server with Hot Module Replacement (HMR)</td>
+                </tr>
+                <tr>
+                    <td><code>build</code></td>
+                    <td><code>npm run build</code></td>
+                    <td>Create optimized production build in <code>dist</code> folder</td>
+                </tr>
+                <tr>
+                    <td><code>preview</code></td>
+                    <td><code>npm run preview</code></td>
+                    <td>Preview production build locally</td>
+                </tr>
+                <tr>
+                    <td><code>lint</code></td>
+                    <td><code>npm run lint</code></td>
+                    <td>Run ESLint to check code quality</td>
+                </tr>
+                <tr>
+                    <td><code>test</code></td>
+                    <td><code>npm test</code></td>
+                    <td>Run test suite with Vitest</td>
+                </tr>
+                <tr>
+                    <td><code>test:ui</code></td>
+                    <td><code>npm run test:ui</code></td>
+                    <td>Run tests with Vitest UI interface</td>
+                </tr>
+                <tr>
+                    <td><code>test:coverage</code></td>
+                    <td><code>npm run test:coverage</code></td>
+                    <td>Run tests with coverage report</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.2 Environment Variables</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable</th>
+                    <th>Description</th>
+                    <th>Default/Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>VITE_BASE_URL</code></td>
+                    <td>Base URL for the API endpoint</td>
+                    <td>https://fakestoreapi.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.3 Vite Configuration</h3>
+        <p>The project uses Vite as the build tool. Key configurations in <code>vite.config.js</code>:</p>
+        <ul>
+            <li><strong>React Plugin:</strong> For JSX transformation and Fast Refresh</li>
+            <li><strong>Tailwind CSS Plugin:</strong> For utility-first CSS styling</li>
+            <li><strong>Vitest Configuration:</strong> For testing setup with jsdom environment</li>
+        </ul>
+
+        <h2 id="running-app">5. 💻 Running the Application</h2>
+
+        <h3>5.1 Development Mode</h3>
+        <div class="step-box">
+            <p><strong>Start the development server:</strong></p>
+            <pre><code>npm run dev</code></pre>
+            <p>The application will be available at <code>http://localhost:5173</code> (or the next available port).</p>
+            <p><strong>Features of dev server:</strong></p>
+            <ul>
+                <li>Hot Module Replacement (HMR) - instant updates without page refresh</li>
+                <li>Fast Refresh - preserves component state during updates</li>
+                <li>Source maps - for easier debugging</li>
+                <li>Error overlay - displays errors directly in the browser</li>
+            </ul>
+        </div>
+
+        <h3>5.2 Production Build</h3>
+        <div class="step-box">
+            <p><strong>Create an optimized production build:</strong></p>
+            <pre><code>npm run build</code></pre>
+            <p>This command:</p>
+            <ul>
+                <li>Compiles and minifies all JavaScript and CSS</li>
+                <li>Optimizes images and assets</li>
+                <li>Creates a <code>dist</code> folder with production-ready files</li>
+                <li>Generates source maps for debugging (optional)</li>
+            </ul>
+        </div>
+
+        <h3>5.3 Preview Production Build</h3>
+        <div class="step-box">
+            <p><strong>Preview the production build locally:</strong></p>
+            <pre><code>npm run preview</code></pre>
+            <p>This serves the production build locally so you can test it before deployment.</p>
+        </div>
+
+        <h2 id="components">6. 🧩 Components Documentation</h2>
+
+        <h3>6.1 Page Components</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Key Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>Dashboard</code></td>
+                    <td>src/pages/Dashboard.jsx</td>
+                    <td>Main dashboard with statistics and overview</td>
+                    <td>Stats cards, charts, recent activity, quick actions</td>
+                </tr>
+                <tr>
+                    <td><code>Products</code></td>
+                    <td>src/pages/Products.jsx</td>
+                    <td>Product listing page</td>
+                    <td>Search, filter, sort, grid layout</td>
+                </tr>
+                <tr>
+                    <td><code>ProductDetails</code></td>
+                    <td>src/pages/ProductDetails.jsx</td>
+                    <td>Detailed view of a single product</td>
+                    <td>Product info, images, rating, add to favorites</td>
+                </tr>
+                <tr>
+                    <td><code>Favorites</code></td>
+                    <td>src/pages/Favorites.jsx</td>
+                    <td>Page displaying all favorited products</td>
+                    <td>Favorite products list, remove from favorites</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>6.2 Reusable Components</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Location</th>
+                    <th>Props</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>ProductCard</code></td>
+                    <td>src/components/ProductCard.jsx</td>
+                    <td>product, showRemoveButton, onRemove</td>
+                    <td>Displays product information in a card format with image, title, price, rating</td>
+                </tr>
+                <tr>
+                    <td><code>ProductCardSkeleton</code></td>
+                    <td>src/components/ProductCardSkeleton.jsx</td>
+                    <td>-</td>
+                    <td>Loading skeleton for product cards</td>
+                </tr>
+                <tr>
+                    <td><code>ErrorMessage</code></td>
+                    <td>src/components/ErrorMessage.jsx</td>
+                    <td>title, message, onRetry</td>
+                    <td>Error display component with retry functionality</td>
+                </tr>
+                <tr>
+                    <td><code>Spinner</code></td>
+                    <td>src/components/Spinner.jsx</td>
+                    <td>-</td>
+                    <td>Loading spinner component</td>
+                </tr>
+                <tr>
+                    <td><code>WishlistButton</code></td>
+                    <td>src/components/WishlistButton.jsx</td>
+                    <td>product</td>
+                    <td>Button for adding/removing products from favorites</td>
+                </tr>
+                <tr>
+                    <td><code>Wrapper</code></td>
+                    <td>src/components/Wrapper.jsx</td>
+                    <td>fullScreen, headerContent, children</td>
+                    <td>Layout wrapper component for pages</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>6.3 Layout Components</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>DashboardLayout</code></td>
+                    <td>src/layout/DashboardLayout.jsx</td>
+                    <td>Main layout wrapper with sidebar and header, manages sidebar state</td>
+                </tr>
+                <tr>
+                    <td><code>Header</code></td>
+                    <td>src/layout/Header.jsx</td>
+                    <td>Top navigation header with menu toggle</td>
+                </tr>
+                <tr>
+                    <td><code>Sidebar</code></td>
+                    <td>src/layout/Sidebar.jsx</td>
+                    <td>Sidebar navigation menu with links to all pages</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>6.4 Component Usage Examples</h3>
+        <p><strong>Using ProductCard:</strong></p>
+        <pre><code>import ProductCard from './components/ProductCard';
+
+&lt;ProductCard 
+  product={product} 
+  showRemoveButton={false}
+  onRemove={handleRemove}
+/&gt;</code></pre>
+
+        <p><strong>Using ErrorMessage:</strong></p>
+        <pre><code>import ErrorMessage from './components/ErrorMessage';
+
+&lt;ErrorMessage
+  title="Failed to load products"
+  message="Unable to fetch products. Please try again."
+  onRetry={refetch}
+/&gt;</code></pre>
+
+        <h2 id="state-management">7. 🗄️ State Management</h2>
+
+        <h3>7.1 Redux Store Configuration</h3>
+        <p>The Redux store is configured in <code>src/redux/store.js</code>:</p>
+        <pre><code>import { configureStore } from "@reduxjs/toolkit";
+import { productManagementApi } from "../server/api";
+import favoritesReducer from "./favoritesSlice";
+
+export const store = configureStore({
+  reducer: {
+    [productManagementApi.reducerPath]: productManagementApi.reducer,
+    favorites: favoritesReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(productManagementApi.middleware),
+});</code></pre>
+
+        <h3>7.2 Favorites Slice</h3>
+        <p>Located in <code>src/redux/favoritesSlice.js</code>, manages favorite products:</p>
+        <pre><code>import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  favorites: [],
+};
+
+const favoritesSlice = createSlice({
+  name: 'favorites',
+  initialState,
+  reducers: {
+    addFavorite: (state, action) => {
+      state.favorites.push(action.payload);
+    },
+    removeFavorite: (state, action) => {
+      state.favorites = state.favorites.filter(
+        favorite => favorite.id !== action.payload
+      );
+    },
+  },
+});
+
+export const { addFavorite, removeFavorite } = favoritesSlice.actions;
+export default favoritesSlice.reducer;</code></pre>
+
+        <h3>7.3 Using Redux in Components</h3>
+        <p><strong>Accessing state:</strong></p>
+        <pre><code>import { useSelector } from 'react-redux';
+
+const favorites = useSelector((state) => state.favorites.favorites);</code></pre>
+
+        <p><strong>Dispatching actions:</strong></p>
+        <pre><code>import { useDispatch } from 'react-redux';
+import { addFavorite, removeFavorite } from '../redux/favoritesSlice';
+
+const dispatch = useDispatch();
+
+// Add to favorites
+dispatch(addFavorite(product));
+
+// Remove from favorites
+dispatch(removeFavorite(productId));</code></pre>
+
+        <h2 id="api-integration">8. 🔌 API Integration</h2>
+
+        <h3>8.1 RTK Query Setup</h3>
+        <p>The application uses RTK Query for API integration, configured in <code>src/server/api.js</code>:</p>
+        <pre><code>import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+export const productManagementApi = createApi({
+  reducerPath: "productManagementApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_BASE_URL,
+  }),
+  tagTypes: ["products"],
+  endpoints: (builder) => ({
+    getProducts: builder.query({
+      query: () => "/products",
+      providesTags: ["products"],
+    }),
+    getSingleProduct: builder.query({
+      query: (id) => `/products/${id}`,
+      providesTags: ["products"],
+    }),
+  }),
+});
+
+export const { useGetProductsQuery, useGetSingleProductQuery } = productManagementApi;</code></pre>
+
+        <h3>8.2 API Endpoints</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Endpoint</th>
+                    <th>Method</th>
+                    <th>Description</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>/products</code></td>
+                    <td>GET</td>
+                    <td>Fetch all products</td>
+                    <td>Array of product objects</td>
+                </tr>
+                <tr>
+                    <td><code>/products/:id</code></td>
+                    <td>GET</td>
+                    <td>Fetch a single product by ID</td>
+                    <td>Single product object</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>8.3 Using RTK Query Hooks</h3>
+        <p><strong>Fetch all products:</strong></p>
+        <pre><code>import { useGetProductsQuery } from '../server/api';
+
+const {
+  data: products,
+  isLoading,
+  isError,
+  error,
+  refetch,
+} = useGetProductsQuery();</code></pre>
+
+        <p><strong>Fetch single product:</strong></p>
+        <pre><code>import { useGetSingleProductQuery } from '../server/api';
+
+const { data: product, isLoading, isError } = useGetSingleProductQuery(productId);</code></pre>
+
+        <h3>8.4 Hook Return Values</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>data</code></td>
+                    <td>any</td>
+                    <td>The fetched data</td>
+                </tr>
+                <tr>
+                    <td><code>isLoading</code></td>
+                    <td>boolean</td>
+                    <td>True while the request is in progress</td>
+                </tr>
+                <tr>
+                    <td><code>isError</code></td>
+                    <td>boolean</td>
+                    <td>True if the request failed</td>
+                </tr>
+                <tr>
+                    <td><code>error</code></td>
+                    <td>Error | undefined</td>
+                    <td>Error object if request failed</td>
+                </tr>
+                <tr>
+                    <td><code>refetch</code></td>
+                    <td>function</td>
+                    <td>Function to manually refetch data</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="routing">9. 🧭 Routing & Navigation</h2>
+
+        <h3>9.1 Route Configuration</h3>
+        <p>Routes are configured in <code>src/App.jsx</code>:</p>
+        <pre><code>import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import DashboardLayout from './layout/DashboardLayout';
+import Dashboard from './pages/Dashboard';
+import Products from './pages/Products';
+import ProductDetails from './pages/ProductDetails';
+import Favorites from './pages/Favorites';
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;DashboardLayout /&gt;}&gt;
+          &lt;Route index element={&lt;Navigate to="/dashboard" replace /&gt;} /&gt;
+          &lt;Route path="dashboard" element={&lt;Dashboard /&gt;} /&gt;
+          &lt;Route path="products" element={&lt;Products /&gt;} /&gt;
+          &lt;Route path="products/:id" element={&lt;ProductDetails /&gt;} /&gt;
+          &lt;Route path="favorites" element={&lt;Favorites /&gt;} /&gt;
+        &lt;/Route&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}</code></pre>
+
+        <h3>9.2 Available Routes</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Route</th>
+                    <th>Component</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>/</code></td>
+                    <td>Redirects to /dashboard</td>
+                    <td>Root route</td>
+                </tr>
+                <tr>
+                    <td><code>/dashboard</code></td>
+                    <td>Dashboard</td>
+                    <td>Main dashboard page</td>
+                </tr>
+                <tr>
+                    <td><code>/products</code></td>
+                    <td>Products</td>
+                    <td>Products listing page</td>
+                </tr>
+                <tr>
+                    <td><code>/products/:id</code></td>
+                    <td>ProductDetails</td>
+                    <td>Product details page (dynamic route)</td>
+                </tr>
+                <tr>
+                    <td><code>/favorites</code></td>
+                    <td>Favorites</td>
+                    <td>Favorites page</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>9.3 Navigation</h3>
+        <p><strong>Using useNavigate hook:</strong></p>
+        <pre><code>import { useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate();
+
+// Navigate to a route
+navigate('/products');
+navigate(`/products/${productId}`);
+navigate(-1); // Go back</code></pre>
+
+        <p><strong>Using Link component:</strong></p>
+        <pre><code>import { Link } from 'react-router-dom';
+
+&lt;Link to="/products"&gt;View Products&lt;/Link&gt;
+&lt;Link to={`/products/${product.id}`}&gt;View Details&lt;/Link&gt;</code></pre>
+
+        <h2 id="features">10. ✨ Features Deep Dive</h2>
+
+        <h3>10.1 Search Functionality</h3>
+        <div class="feature-box">
+            <p><strong>Implementation:</strong> The search feature uses a custom <code>useDebounce</code> hook to optimize performance.</p>
+            <p><strong>Location:</strong> <code>src/hooks/useDebounce.js</code></p>
+            <p><strong>How it works:</strong></p>
+            <ul>
+                <li>User types in the search input</li>
+                <li>Input is debounced (500ms delay)</li>
+                <li>Search filters products by title, description, or category</li>
+                <li>Results update in real-time</li>
+            </ul>
+            <pre><code>const [searchValue, setSearchValue] = useState("");
+const debouncedSearchValue = useDebounce(searchValue, 500);
+
+// Filter products based on debounced search value
+const filteredProducts = products.filter(product => 
+  product.title?.toLowerCase().includes(debouncedSearchValue.toLowerCase()) ||
+  product.description?.toLowerCase().includes(debouncedSearchValue.toLowerCase())
+);</code></pre>
+        </div>
+
+        <h3>10.2 Filter Functionality</h3>
+        <div class="feature-box">
+            <p><strong>Available Filters:</strong></p>
+            <ul>
+                <li>Men's Clothing</li>
+                <li>Women's Clothing</li>
+                <li>Jewelery</li>
+                <li>Electronics</li>
+            </ul>
+            <p><strong>Implementation:</strong></p>
+            <pre><code>const [filterValue, setFilterValue] = useState("");
+
+const filteredProducts = products.filter(product =>
+  product.category?.toLowerCase() === filterValue.toLowerCase()
+);</code></pre>
+        </div>
+
+        <h3>10.3 Sort Functionality</h3>
+        <div class="feature-box">
+            <p><strong>Sort Options:</strong></p>
+            <ul>
+                <li>Price: Low to High</li>
+                <li>Price: High to Low</li>
+            </ul>
+            <p><strong>Implementation:</strong></p>
+            <pre><code>const [sortValue, setSortValue] = useState("");
+
+const sortedProducts = [...products].sort((a, b) => {
+  const priceA = parseFloat(a.price) || 0;
+  const priceB = parseFloat(b.price) || 0;
+  if (sortValue === "asc") {
+    return priceA - priceB;
+  } else if (sortValue === "desc") {
+    return priceB - priceA;
+  }
+  return 0;
+});</code></pre>
+        </div>
+
+        <h3>10.4 Favorites System</h3>
+        <div class="feature-box">
+            <p><strong>Features:</strong></p>
+            <ul>
+                <li>Add products to favorites</li>
+                <li>Remove products from favorites</li>
+                <li>View all favorites on dedicated page</li>
+                <li>Persistent state using Redux</li>
+            </ul>
+            <p><strong>Usage:</strong></p>
+            <pre><code>import { useDispatch, useSelector } from 'react-redux';
+import { addFavorite, removeFavorite } from '../redux/favoritesSlice';
+
+const dispatch = useDispatch();
+const favorites = useSelector((state) => state.favorites.favorites);
+
+// Add to favorites
+dispatch(addFavorite(product));
+
+// Remove from favorites
+dispatch(removeFavorite(productId));
+
+// Check if product is favorited
+const isFavorite = favorites.some(fav => fav.id === product.id);</code></pre>
+        </div>
+
+        <h3>10.5 Loading States</h3>
+        <div class="feature-box">
+            <p><strong>Skeleton Components:</strong></p>
+            <ul>
+                <li><code>ProductCardSkeleton</code> - For product cards</li>
+                <li><code>ProductDetailsSkeleton</code> - For product details page</li>
+                <li><code>Spinner</code> - General loading indicator</li>
+            </ul>
+            <p><strong>Implementation:</strong></p>
+            <pre><code>if (isLoading) {
+  return (
+    &lt;div className="grid grid-cols-1 md:grid-cols-3 gap-6"&gt;
+      {[...Array(6)].map((_, index) => (
+        &lt;ProductCardSkeleton key={index} /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+
+        <h3>10.6 Error Handling</h3>
+        <div class="feature-box">
+            <p><strong>Error Component:</strong> <code>ErrorMessage</code> displays errors with retry functionality</p>
+            <pre><code>if (isError) {
+  return (
+    &lt;ErrorMessage
+      title="Failed to load products"
+      message={error?.data?.message || "Unable to fetch products. Please try again."}
+      onRetry={refetch}
+    /&gt;
+  );
+}</code></pre>
+        </div>
+
+        <h2 id="testing">11. 🧪 Testing</h2>
+
+        <h3>11.1 Test Setup</h3>
+        <p>Testing is configured using Vitest and React Testing Library. Configuration in <code>vite.config.js</code>:</p>
+        <pre><code>export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["./src/__tests__/setup.js"],
+    css: true,
+  },
+});</code></pre>
+
+        <h3>11.2 Running Tests</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>npm test</code></td>
+                    <td>Run all tests once</td>
+                </tr>
+                <tr>
+                    <td><code>npm test -- --watch</code></td>
+                    <td>Run tests in watch mode</td>
+                </tr>
+                <tr>
+                    <td><code>npm run test:ui</code></td>
+                    <td>Run tests with Vitest UI</td>
+                </tr>
+                <tr>
+                    <td><code>npm run test:coverage</code></td>
+                    <td>Run tests with coverage report</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>11.3 Test Structure</h3>
+        <ul>
+            <li><strong>Unit Tests:</strong> Located in <code>src/__tests__/unit/</code>
+                <ul>
+                    <li>Component tests (ProductCard, ErrorMessage, Spinner)</li>
+                    <li>Hook tests (useDebounce)</li>
+                    <li>Redux slice tests (favoritesSlice)</li>
+                </ul>
+            </li>
+            <li><strong>Integration Tests:</strong> Located in <code>src/__tests__/integration/</code>
+                <ul>
+                    <li>Search functionality</li>
+                    <li>Filter functionality</li>
+                    <li>Sort functionality</li>
+                    <li>Favorites functionality</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>11.4 Writing Tests</h3>
+        <p><strong>Example Component Test:</strong></p>
+        <pre><code>import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { store } from '../../redux/store';
+import ProductCard from '../../components/ProductCard';
+
+describe('ProductCard', () => {
+  const mockProduct = {
+    id: 1,
+    title: 'Test Product',
+    price: '19.99',
+    description: 'Test description',
+    category: 'electronics',
+    image: 'test.jpg',
+    rating: { rate: 4.5, count: 100 }
+  };
+
+  it('should render product information', () => {
+    render(
+      &lt;Provider store={store}&gt;
+        &lt;ProductCard product={mockProduct} /&gt;
+      &lt;/Provider&gt;
+    );
+    
+    expect(screen.getByText('Test Product')).toBeInTheDocument();
+    expect(screen.getByText('$19.99')).toBeInTheDocument();
+  });
+});</code></pre>
+
+        <h2 id="build-deploy">12. 🚀 Build & Deployment</h2>
+
+        <h3>12.1 Building for Production</h3>
+        <div class="step-box">
+            <p><strong>Step 1: Build the application</strong></p>
+            <pre><code>npm run build</code></pre>
+            <p>This creates an optimized build in the <code>dist</code> directory.</p>
+
+            <p><strong>Step 2: Preview the build</strong></p>
+            <pre><code>npm run preview</code></pre>
+            <p>Test the production build locally before deploying.</p>
+        </div>
+
+        <h3>12.2 Deployment Options</h3>
+
+        <h4>12.2.1 Vercel</h4>
+        <div class="step-box">
+            <ol>
+                <li>Install Vercel CLI: <code>npm i -g vercel</code></li>
+                <li>Run <code>vercel</code> in the project directory</li>
+                <li>Follow the prompts to deploy</li>
+                <li>Add environment variables in Vercel dashboard</li>
+            </ol>
+        </div>
+
+        <h4>12.2.2 Netlify</h4>
+        <div class="step-box">
+            <ol>
+                <li>Build command: <code>npm run build</code></li>
+                <li>Publish directory: <code>dist</code></li>
+                <li>Add environment variables in Netlify dashboard</li>
+                <li>Deploy from Git or drag and drop the <code>dist</code> folder</li>
+            </ol>
+        </div>
+
+        <h4>12.2.3 GitHub Pages</h4>
+        <div class="step-box">
+            <ol>
+                <li>Install gh-pages: <code>npm install --save-dev gh-pages</code></li>
+                <li>Add to package.json:
+                    <pre><code>"homepage": "https://yourusername.github.io/product-management-app",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+}</code></pre>
+                </li>
+                <li>Run <code>npm run deploy</code></li>
+            </ol>
+        </div>
+
+        <div class="info-box">
+            <strong>💡 Important:</strong> Make sure to set your <code>VITE_BASE_URL</code> environment variable 
+            in your deployment platform's configuration settings.
+        </div>
+
+        <h2 id="advanced">13. 🎓 Advanced Topics</h2>
+
+        <h3>13.1 Custom Hooks</h3>
+        <p><strong>useDebounce Hook:</strong></p>
+        <pre><code>import { useState, useEffect } from 'react';
+
+export default function useDebounce(value, delay) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}</code></pre>
+
+        <h3>13.2 Performance Optimization</h3>
+        <ul>
+            <li><strong>Code Splitting:</strong> Lazy load routes and components</li>
+            <li><strong>Memoization:</strong> Use <code>useMemo</code> and <code>useCallback</code> for expensive operations</li>
+            <li><strong>Debouncing:</strong> Debounce search inputs to reduce API calls</li>
+            <li><strong>Image Optimization:</strong> Lazy load images and handle errors gracefully</li>
+        </ul>
+
+        <h3>13.3 Best Practices</h3>
+        <ul>
+            <li>Keep components small and focused</li>
+            <li>Use TypeScript for type safety (optional)</li>
+            <li>Follow React best practices and hooks rules</li>
+            <li>Write tests for critical functionality</li>
+            <li>Use ESLint and Prettier for code consistency</li>
+            <li>Document complex logic and components</li>
+        </ul>
+
+        <h3>13.4 Extending the Application</h3>
+        <p><strong>Adding New Features:</strong></p>
+        <ol>
+            <li>Create new components in <code>src/components/</code></li>
+            <li>Add new pages in <code>src/pages/</code></li>
+            <li>Update routes in <code>src/App.jsx</code></li>
+            <li>Add Redux slices if needed in <code>src/redux/</code></li>
+            <li>Add API endpoints in <code>src/server/api.js</code></li>
+            <li>Write tests for new features</li>
+        </ol>
+
+        <h2 id="troubleshooting">14. 🔧 Troubleshooting</h2>
+
+        <h3>14.1 Common Issues</h3>
+
+        <div class="warning-box">
+            <h4>Issue: Environment variables not working</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Ensure variables start with <code>VITE_</code> prefix</li>
+                <li>Restart the dev server after changing .env file</li>
+                <li>Check that .env file is in the root directory</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h4>Issue: Build fails</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Clear node_modules and reinstall: <code>rm -rf node_modules && npm install</code></li>
+                <li>Clear build cache: <code>rm -rf dist</code></li>
+                <li>Check for TypeScript errors if using TypeScript</li>
+                <li>Verify all dependencies are installed</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h4>Issue: Tests not running</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Ensure test files end with <code>.test.js</code> or <code>.test.jsx</code></li>
+                <li>Check that setup files are configured correctly</li>
+                <li>Verify jsdom is installed for DOM testing</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h4>Issue: API calls failing</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Verify <code>VITE_BASE_URL</code> is set correctly</li>
+                <li>Check network connectivity</li>
+                <li>Verify API endpoint is accessible</li>
+                <li>Check browser console for CORS errors</li>
+            </ul>
+        </div>
+
+        <h3>14.2 Getting Help</h3>
+        <ul>
+            <li>Check the browser console for errors</li>
+            <li>Review the network tab for API issues</li>
+            <li>Check React DevTools for component state</li>
+            <li>Review Redux DevTools for state management issues</li>
+            <li>Open an issue on GitHub with error details</li>
+        </ul>
+
+        <h2>📝 License</h2>
+        <p>This project is open source and available under the MIT License.</p>
+
+        <h2>👨‍💻 Author</h2>
+        <p>Developed with ❤️ for efficient product management.</p>
+
+        <h2>🙏 Acknowledgments</h2>
+        <ul>
+            <li>React team for the amazing framework</li>
+            <li>Redux Toolkit team for excellent state management tools</li>
+            <li>Tailwind CSS for the utility-first CSS framework</li>
+            <li>Vite team for the blazing-fast build tool</li>
+            <li>Vitest team for the modern testing framework</li>
+            <li>FakeStoreAPI for providing test data</li>
+        </ul>
+
+        <div class="footer">
+            <p>Last updated: 2024 | Product Management Application</p>
+            <p>For issues and questions, please open an issue on GitHub.</p>
+            <p style="margin-top: 20px;">
+                <a href="README.md" style="color: #2563eb; text-decoration: none;">← Back to README</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('content');
+            const button = document.querySelector('.download-btn');
+            
+            // Show loading state
+            const originalText = button.innerHTML;
+            button.innerHTML = '<svg class="animate-spin" fill="none" viewBox="0 0 24 24" style="width: 20px; height: 20px;"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Generating PDF...';
+            button.disabled = true;
+            
+            // Configure PDF options
+            const opt = {
+                margin: [10, 10, 10, 10],
+                filename: 'Product-Management-App-Complete-Documentation.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true,
+                    logging: false
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait',
+                    compress: true
+                }
+            };
+            
+            // Generate and download PDF
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Restore button state
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }).catch((error) => {
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF. Please try again.');
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+        
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
