@@ -1,15 +1,15 @@
-# 📦 Product Management Dashboard
+# Product Management Dashboard
 
 > **Frontend Developer Assessment Solution**  
 > A modern product dashboard built with React, Redux Toolkit, and comprehensive testing.
 
-## 🌐 Live Demo
+## Live Demo
 
-**🔗 Live Application**: [View on Netlify](https://695652c02bdf20693a7ff75f--lambent-frangipane-f19343.netlify.app/dashboard)
+**Live Application**: [View on Netlify](https://695652c02bdf20693a7ff75f--lambent-frangipane-f19343.netlify.app)
 
 ---
 
-## 📋 Assignment Requirements & Implementation
+## Assignment Requirements & Implementation
 
 | Requirement | Status | Implementation |
 |-------------|--------|----------------|
@@ -29,7 +29,7 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Live Demo](#-live-demo)
 - [Assignment Requirements](#-assignment-requirements--implementation)
@@ -45,7 +45,7 @@
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -56,7 +56,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/product-management-app.git
+git clone https://github.com/masaiff210880/product-management-app.git
 cd product-management-app
 
 # Install dependencies
@@ -85,7 +85,7 @@ The application will be available at `http://localhost:5173`
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 product-management-app/
@@ -131,7 +131,7 @@ product-management-app/
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Category | Technology | Version | Purpose |
 |----------|------------|---------|---------|
@@ -145,7 +145,7 @@ product-management-app/
 
 ---
 
-## ✨ Features
+## Features
 
 ### 1. Product Listing Page (`/products`)
 
@@ -179,7 +179,7 @@ product-management-app/
 
 ---
 
-## 🗄️ State Management
+## State Management
 
 ### Redux Store Configuration
 
@@ -252,7 +252,7 @@ export const productManagementApi = createApi({
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Test Structure
 
@@ -298,7 +298,7 @@ npm run test:coverage
 | `src/common` | 100% | 85.71% | 100% | 100% |
 | `src/server` | 100% | 100% | 33.33% | 100% |
 
-> 📊 View detailed coverage: Open `coverage/index.html` after running `npm run test:coverage`
+>  View detailed coverage: Open `coverage/index.html` after running `npm run test:coverage`
 
 ### Test Examples
 
@@ -328,7 +328,7 @@ describe('Search Integration', () => {
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 ### Netlify Deployment
 
@@ -361,7 +361,7 @@ netlify deploy --prod
 
 ---
 
-## 🎬 Video Walkthrough
+## Video Walkthrough
 
 A screen recording explaining the solution is available. The recording covers:
 
@@ -372,11 +372,11 @@ A screen recording explaining the solution is available. The recording covers:
 5. **Testing** - Unit and integration test coverage
 6. **Deployment** - Netlify configuration
 
-> 📝 See `VIDEO_SCRIPT.md` for the complete video script.
+>  See `VIDEO_SCRIPT.md` for the complete video script.
 
 ---
 
-## 📚 Additional Documentation
+##  Additional Documentation
 
 For detailed documentation including:
 - Complete component API reference
@@ -388,7 +388,7 @@ For detailed documentation including:
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -401,13 +401,13 @@ For detailed documentation including:
 
 ---
 
-## 📝 License
+## License
 
 This project is open source and available under the MIT License.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [React](https://react.dev) - UI Framework
 - [Redux Toolkit](https://redux-toolkit.js.org) - State Management
@@ -418,4 +418,4 @@ This project is open source and available under the MIT License.
 
 ---
 
-> 📖 **Note**: For an interactive HTML version with PDF download capability, see [Documentation.html](./Documentation.html)
+> **Note**: For an interactive HTML version with PDF download capability, see [Documentation.html](./Documentation.html)
